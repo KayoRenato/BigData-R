@@ -14,14 +14,14 @@ list1
 # http://data.princeton.edu/wws509/datasets/effort.dat
 
 data1 <-data.frame(read.table(url('https://data.princeton.edu/wws509/datasets/effort.dat')))
-data1
+View(data1)
 
 
 # Exercício 5 - Transforme o dataframe anterior, em um dataframe nomeado com os seguintes labels:
 # c("config", "esfc", "chang")
 
 names(data1) <- c("config", "esfc", "chang")
-data1
+View(data1)
 
 # Exercício 6 - Imprima na tela o dataframe iris, verifique quantas dimensões existem no dataframe iris e imprima um resumo do dataset
 View(iris)
