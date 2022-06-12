@@ -1,4 +1,4 @@
-# BigData-R
+# R Scrit
 Repository on R Script applied to Big Data:
 1. Introduction to R Studio;
 2. Operation;
