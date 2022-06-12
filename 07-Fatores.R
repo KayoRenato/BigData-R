@@ -61,5 +61,3 @@ boxplot(etnia$Peso ~ etnia$Sexo, xlab = 'Sexo Biologico', ylab = 'Peso (kg)')
 boxplot(etnia$Idade ~ etnia$Estado_Civil, xlab = 'Estado Civil', ylab = 'Idade (anos)')
 
 boxplot(etnia$Idade ~ etnia$Etnia, xlab = 'Etnia', ylab = 'Idade (anos)')
-
-#
