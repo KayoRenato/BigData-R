@@ -105,3 +105,73 @@ sqldf('select equipe, avg(num_cestas) from tabela_basquete group by equipe')
 
 #obs.: utilizar o tapply e mais performatico que o sqldf.
 
+
+#utilizando a function by
+
+dat_flower <- data.frame(species = c(rep(c(1:3), each=5)),
+                         pedal.lenght = c(rnorm(5, 4.5, 1),
+                                          rnorm(5, 4.5, 1),
+                                          rnorm(5, 4.5, 1)
+                                          ),
+                         pedal.width = c(rnorm(5, 2.5, 1),
+                                          rnorm(5, 2.5, 1),
+                                          rnorm(5, 4.5, 1)
+                         )
+)
+View(dat_flower)
+str(dat_flower)
+summary(dat_flower)
+
+dat_flower$species <- factor(dat_flower$species)
+str(dat_flower)
+summary(dat_flower)
+
+#calcular o comprimento medio das petalas para cada species
+tapply(dat_flower$pedal.lenght, dat_flower$species, mean)
+
+#ou utilizando by
+by(dat_flower, dat_flower$species, function(x){
+  mean.pl <- mean(x$pedal.lenght)
+})
+
+
+
+#lapply()
+lista2 <- list(a = (1:10), b = (45:77))
+lista2
+
+lapply(lista2, sum)
+sapply(lista2, sum) #mesma coisa com uma visualizacao diferente
+
+
+#vapply()
+?vapply
+?fivenum
+vapply(lista2, 
+       fivenum, 
+       c(Min. = 0,
+         '1st Qu.' = 0,
+         Median = 0,
+         '3rd Qu.' = 0,
+         Max. = 0)
+       )
+
+#pode ser uma boa funcao para aplicar um funcao em um objeto que se replica
+
+#replicate
+?replicate
+
+replicate(7, runif(10))
+
+#mapply
+?mapply
+mapply(rep, 1:4, 4:1)
+
+#rapply
+?rapply
+lista3 <- list(a = c(1:5), b = c(6:10))
+lista3
+
+rapply(lista3, sum)
+
+rapply(lista3, sum, how ='list')
