@@ -22,13 +22,19 @@ escola <- data.frame(Aluno = c('Alan', 'Alice', 'Alana', 'Aline', 'Alex', 'Ajay'
                      Quimica = c(76, 56, 89, 90, 100, 87))
 
 
-apply(escola[2:4], 2, mean)
+apply(escola[,2:4], 2, mean)
+
+apply(escola[,2, drop = FALSE], 2, mean)
+# ou
 mean(escola$Matematica)
 
-# Exercicio 4 - Cria uma lista com 3 elementos, todos numéricos 
+# Exercicio 4 - Crie uma lista com 3 elementos, todos numéricos 
 # e calcule a soma de todos os elementos da lista
-list1 <- list(c(2, 5, 2), c(3:10), c(1:5))
+list1 <- list(a=c(2, 5, 2), b=c(3:10), c=c(1:5))
+
 lapply(list1, sum)
+
+do.call(sum, list1)
 
 # Exercicio 5 - Transforme a lista anterior um vetor
 
@@ -44,8 +50,9 @@ str <- c("Expressoes", "regulares", "em linguagem R",
          "10992451280")
 
 
-str <- sub('textos', 'frases', str)
+str <- gsub('textos', 'frases', str)
 str
+
 
 # Exercicio 7 - Usando o dataset mtcars, crie um grafico com ggplot do tipo 
 # scatter plot. Use as colunas disp e mpg nos eixos x e y respectivamente
@@ -66,6 +73,9 @@ mat1
 ?as.vector
 barplot(as.vector(mat1))
 
+#poderia ser feito dessa forma
+barplot(mat1, beside = TRUE)
+
 tmat1 <- t(mat1)
 barplot(as.vector(tmat1))
 
@@ -75,13 +85,22 @@ data(diamonds)
 str(diamonds)
 View(diamonds)
 ?ggplot
-ggplot(data = diamonds, aes(x = price)) + 
-  geom_density(adjust = 1.5)
 
-?group
+# ggplot(data = diamonds, aes(x = price, group = fill, fill = cut)) + 
+#  geom_density(adjust = 1.5)
+# Que paremetros sao esse - 'group' e 'fill' ????
+# fill seria apenas para um boxplot? Não
+# group por fill nao faz sentido, poderia ser agrupado pela variavel cut, mas por fill nao.
+
+ggplot(data = diamonds, aes(x = price, group = cut, fill = cut)) + 
+  geom_density(adjust = 1.5)
 
 
 # Exercício 10 - Qual o erro do código abaixo?
 ggplot(mtcars, aes(x = as.factor(cyl), fill = as.factor(cyl))) + 
-  geom_barplot() +
+  geom_bar() +
   labs(fill = "cyl")
+
+# geom_barplot() substituir por geom_bar()
+
+
