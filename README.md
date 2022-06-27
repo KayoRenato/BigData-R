@@ -7,4 +7,7 @@ Repository on R Script applied to Big Data:
 5. Advanced Data Type;
 6. Consolidation Exercise;
 7. Factor;
-8. Functions...
+8. Functions;
+9. Dates;
+10. Exercise;
+11. Exercise...
