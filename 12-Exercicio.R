@@ -99,10 +99,17 @@ dim(result_csv)
 max_sal <- max(result_csv$salary)
 
 # Pergunta 3 - Imprima no console o registro da pessoa com o maior salário.
-result_csv$name[result_csv$salary==max_sal]
+best_sal <- subset(result_csv, result_csv$salary==max_sal)
+View(best_sal)
 
 # Pergunta 4 - Imprima no console todas as pessoas que trabalham no departamento de IT.
-result_csv$name[result_csv$dept=='IT']
+time_TI <- subset(result_csv, result_csv$dept=='IT')
+View(time_TI)
 
 # Pergunta 5 - Imprima no console as pessoas do departamento de IT com salário superior a 600. 
-result_csv$name[result_csv$dept=='IT' & result_csv$salary>600]
+time_TI_600_1 <- subset(time_TI, salary>600)
+View(time_TI_600_1)
+
+# ou
+time_TI_600_2 <- subset(result_csv, dept=='IT' & salary>600)
+View(time_TI_600_2)
