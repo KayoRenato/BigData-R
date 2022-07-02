@@ -10,4 +10,7 @@ Repository on R Script applied to Big Data:
 8. Functions;
 9. Dates;
 10. Exercise;
-11. Exercise...
+11. Exercise;
+12. Exercise;
+13. Load Data from MySQL;
+14. Persist Data in SQLite;
