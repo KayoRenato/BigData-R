@@ -1,8 +1,9 @@
 # Exercicio 1 - Instale a carregue os pacotes necessarios para trabalhar com SQLite e R
 library(RSQLite)
+library(dbplyr)
 library(DBI)
 
-
+Ex
 # Exercicio 2 - Crie a conexao para o arquivo mamiferos.sqlite em anexo a este script
 dir()
 drv = dbDriver("SQLite")
@@ -17,6 +18,10 @@ qry = 'select sqlite_version();'
 rs = dbSendQuery(con, qry)
 result <- fetch(rs, -1)
 print(result)
+
+#ou 
+?src_dbi
+src_dbi(con)
 
 # Exercicio 4 - Execute a query abaixo no banco de dados e grave em um objero em R:
 # SELECT year, species_id, plot_id FROM surveys
